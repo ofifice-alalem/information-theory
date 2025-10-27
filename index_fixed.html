@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقرير الأصلي والمصحح: نظرية المعلومات والترميز - الاحتمالية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Fix backslash escapes after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.math-expr').forEach(el => {
+                el.innerHTML = el.innerHTML
+                    .replace(/\\cdot/g, '·')
+                    .replace(/\\quad/g, '&nbsp;&nbsp;')
+                    .replace(/\\&/g, '&amp;')
+                    .replace(/\\{/g, '{')
+                    .replace(/\\}/g, '}')
+                    .replace(/\\dots/g, '...')
+                    .replace(/\\eta/g, 'η');
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Keep existing body content -->
+</body>
+</html>

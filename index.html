@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التقرير الأصلي والمصحح: نظرية المعلومات والترميز - الاحتمالية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">📚</div>
+            <span>نظرية المعلومات</span>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">القائمة</div>
+            <a href="#slide-1" class="menu-item active" onclick="setActive(this)">
+                <span>📊</span> الشريحة 1: تصنيف الإشارات
+            </a>
+            <a href="#slide-2" class="menu-item" onclick="setActive(this)">
+                <span>📈</span> الشريحة 2: نظرية الاحتمالات
+            </a>
+            <a href="#slide-3" class="menu-item" onclick="setActive(this)">
+                <span>🔢</span> الشريحة 3: نظرية المجموعات
+            </a>
+            <a href="#slide-4" class="menu-item" onclick="setActive(this)">
+                <span>⚙️</span> الشريحة 4: عمليات المجموعات
+            </a>
+            <a href="#slide-5" class="menu-item" onclick="setActive(this)">
+                <span>📐</span> الشريحة 5: قوانين المجموعات
+            </a>
+            <a href="#slide-6" class="menu-item" onclick="setActive(this)">
+                <span>🔄</span> الشريحة 6: قوانين دي مورغان
+            </a>
+            <a href="#slide-7" class="menu-item" onclick="setActive(this)">
+                <span>🎯</span> الشريحة 7: الفضاء الاحتمالي
+            </a>
+            <a href="#slide-8" class="menu-item" onclick="setActive(this)">
+                <span>🎲</span> الشريحة 8: فضاء العينة
+            </a>
+            <a href="#slide-9" class="menu-item" onclick="setActive(this)">
+                <span>📋</span> الشريحة 9: مجال الأحداث
+            </a>
+            <a href="#slide-10" class="menu-item" onclick="setActive(this)">
+                <span>📊</span> الشريحة 10: مسلمات كولموغوروف
+            </a>
+            <a href="#slide-11" class="menu-item" onclick="setActive(this)">
+                <span>🔗</span> الشريحة 11: الاحتمال المشترك
+            </a>
+            <a href="#slide-12" class="menu-item" onclick="setActive(this)">
+                <span>📉</span> الشريحة 12: الاحتمال الشرطي
+            </a>
+            <a href="#slide-13" class="menu-item" onclick="setActive(this)">
+                <span>🎯</span> الشريحة 13: حالات خاصة
+            </a>
+            <a href="#slide-14" class="menu-item" onclick="setActive(this)">
+                <span>📝</span> الشريحة 14: تعريف الاحتمال
+            </a>
+            <a href="#slide-15" class="menu-item" onclick="setActive(this)">
+                <span>🎲</span> الشريحة 15: مثال النرد
+            </a>
+            <a href="#slide-16" class="menu-item" onclick="setActive(this)">
+                <span>⚪</span> الشريحة 16: مثال الكرات 1
+            </a>
+            <a href="#slide-17" class="menu-item" onclick="setActive(this)">
+                <span>🔴</span> الشريحة 17: مثال الكرات 2
+            </a>
+            <a href="#slide-18" class="menu-item" onclick="setActive(this)">
+                <span>🧮</span> الشريحة 18: قاعدة بايز
+            </a>
+            <a href="#slide-19" class="menu-item" onclick="setActive(this)">
+                <span>🔗</span> الشريحة 19: الاستقلالية الإحصائية
+            </a>
+            <a href="#slide-20" class="menu-item" onclick="setActive(this)">
+                <span>🔄</span> الشريحة 20: مثال مع الإرجاع
+            </a>
+            <a href="#slide-21" class="menu-item" onclick="setActive(this)">
+                <span>❌</span> الشريحة 21: مثال بدون إرجاع
+            </a>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="container">
+        <h1>المحاضرة الثانية (Probability)</h1>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-1">الشريحة 1: تصنيف الإشارات</h2>
+        <div class="slide-content">
+            <img src="img/img-1.png" alt="صورة الشريحة 1">
+
+            <h3>1. أنواع الإشارات في أنظمة الاتصالات</h3>
+            <p><strong>النص:</strong> Communication systems, concerned with two broad classes of signals:
+                <strong>deterministic</strong> and <strong>random (or stochastic)</strong>.</p>
+            <p><strong>الشرح:</strong> توضح هذه النقطة أن الأنظمة الهندسية للاتصالات تتعامل بشكل أساسي مع نوعين من
+                الإشارات أو الأحداث: الإشارات الحتمية (Deterministic) والإشارات العشوائية أو الاحتمالية (Random or
+                Stochastic).</p>
+
+            <h3>2. الإشارات الحتمية (Deterministic Signals)</h3>
+            <p><strong>النص:</strong> A deterministic signals can be modelled as a completely specified function of
+                time.</p>
+            <p><strong>الشرح:</strong> الإشارة الحتمية هي الإشارة التي تكون دالتها الرياضية معروفة بالكامل.</p>
+
+            <p><strong>النص المصحح:</strong> For example, if <span class="math">w(t)=A&cos;(&omega;<sub>0</sub>t+&phi;<sub>0</sub>)</span> where <span class="math">A, &omega;<sub>0</sub>, and &phi;<sub>0</sub></span> are constants, this waveform is deterministic because, for any value of <span class="math">t</span>, the value <span class="math">w(t)</span> can be evaluated.</p>
+            <p><strong>الشرح (المثال):</strong> يوضح مثال الموجة الجيبية أن الإشارة حتمية ما دامت كل المعلمات (السعة،
+                التردد، الطور) ثابتة ومعروفة.</p>
+
+            <p><strong>النص:</strong> If any of the constants are unknown, then the value of <span class="math">w(t)</span> cannot be calculated, and consequently, <span class="math">w(t)</span> is not deterministic.</p>
+            <p><strong>الشرح:</strong> إذا كان أي من الثوابت غير معروف، تخرج الإشارة من فئة "الحتمية".</p>
+
+            <h3>3. الإشارات العشوائية/الاحتمالية (Random/Stochastic Signals)</h3>
+            <p><strong>النص:</strong> A random signals (or stochastic) cannot be completely specified as a function of
+                time and must be modelled by Probability Theory.</p>
+            <p><strong>الشرح:</strong> لا يمكن تحديدها بالكامل كدالة للوقت، ويجب استخدام **نظرية الاحتمالات** لوصفها
+                وتحليلها.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-2">الشريحة 2: نظرية الاحتمالات ونظرية النهاية المركزية (CLT)</h2>
+        <div class="slide-content">
+            <img src="img/img-2.png" alt="صورة الشريحة 2">
+
+            <h3>1. نظرية الاحتمالات (Probability Theory)</h3>
+            <p><strong>النص:</strong> In the analysis and design of communication systems it is necessary to develop
+                mathematical models for random signals and noise, or random processes.</p>
+            <p><strong>الشرح:</strong> نظرًا لأن الإشارات العشوائية والضوضاء جزء لا يتجزأ، فمن الضروري استخدام النمذجة
+                الرياضية المستندة إلى نظرية الاحتمالات لتحليل وتصميم الأنظمة.</p>
+
+            <h3>2. نظرية النهاية المركزية (Central-Limit Theorem - CLT)</h3>
+            <p><strong>النص:</strong> The theorem states that under certain general conditions, the sum of a large
+                number of independent observations that follow the same distribution has an approximate normal
+                distribution (Gaussian).</p>
+            <p><strong>النص (صيغة أخرى):</strong> The CLT states that the sum of independent and identically distributed
+                random variables (with finite mean and variance) has approaches Normal distribution (Gaussian).</p>
+            <p><strong>الشرح:</strong> تنص النظرية على أن مجموع عدد كبير من المتغيرات العشوائية المستقلة (بغض النظر عن
+                توزيعها الأصلي) سيميل إلى اتباع **التوزيع الطبيعي (الغاوسي)**.</p>
+
+            <p><strong>النص:</strong> Distribution can be exponential, Ryleigh, Erlang, Gamma, binomial, Poisson,
+                Chi-Square etc.</p>
+            <p><strong>الشرح:</strong> يؤكد هذا أن التوزيع الأصلي للمتغيرات العشوائية الفردية يمكن أن يكون أيًا من
+                التوزيعات المذكورة، ولكن المجموع سيقترب من الغاوسي.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-3">الشريحة 3: أساسيات نظرية المجموعات (Set Theory)</h2>
+        <div class="slide-content">
+            <img src="img/img-3.png" alt="صورة الشريحة 3">
+
+            <h3>1. دور المجموعات في الاحتمالية</h3>
+            <p><strong>النص:</strong> Sets play an important role in probability.</p>
+            <p><strong>الشرح:</strong> يتم تعريف الأحداث (Events) في نظرية الاحتمالات على أنها مجموعات من النتائج
+                الممكنة.</p>
+
+            <h3>2. تعريف المجموعة (Set Definition)</h3>
+            <p><strong>النص:</strong> Definition: a set is a collection of objects called <strong>elements</strong>.</p>
+            <p><strong>النص:</strong> Elements of a set can also be sets. Sets usually represented by uppercase letters
+                <span class="math">A</span>, and elements usually represented by lowercase letters <span
+                    class="math">a</span>.</p>
+            <p><strong>الشرح:</strong> المجموعة هي تجميع من الكائنات تُسمى "العناصر". ترميز المجموعات بأحرف كبيرة (<span
+                    class="math">A</span>)، والعناصر بأحرف صغيرة (<span class="math">a</span>).</p>
+
+            <h3>3. المجموعة الخالية (Empty Set)</h3>
+            <p><strong>النص:</strong> An empty is a set that contains no element.</p>
+            <p><strong>النص:</strong> It plays an important role in set theory and is denoted by <span
+                    class="math">&emptyset;</span>.</p>
+            <p><strong>النص:</strong> Example, set <span class="math">A=\{0\}</span> is not an empty set since it
+                contains the element <span class="math">0</span>.</p>
+            <p><strong>الشرح:</strong> المجموعة الخالية لا تحتوي على أي عنصر ويُرمز لها بـ <span
+                    class="math">&emptyset;</span>. المجموعة التي تحتوي على العنصر <span class="math">0</span> ليست
+                خالية.</p>
+
+            <h3>4. تعريف المجموعة الجزئية (Subset Definition)</h3>
+            <p><strong>النص:</strong> Set <span class="math">B</span> is a subset of <span class="math">A</span> if
+                every element in <span class="math">B</span> is an element of <span class="math">A</span>, <span
+                    class="math">B&subseteq; A</span>.</p>
+            <p><strong>النص:</strong> <span class="math">B</span> is a proper subset of <span class="math">A</span> if
+                every element of <span class="math">A</span> is not in <span class="math">B</span>, <span
+                    class="math">B&subset; A</span>.</p>
+            <p><strong>الشرح:</strong> <span class="math">B</span> مجموعة جزئية من <span class="math">A</span> إذا كانت
+                جميع عناصر <span class="math">B</span> موجودة في <span class="math">A</span>. وتكون مجموعة جزئية فعلية
+                (<span class="math">B&subset; A</span>) إذا لم تكن <span class="math">B</span> مساوية لـ <span
+                    class="math">A</span>.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-4">الشريحة 4: العمليات الأساسية على المجموعات (Set Operations)</h2>
+        <div class="slide-content">
+            <img src="img/img-4.png" alt="صورة الشريحة 4">
+
+            <h3>1. الاتحاد (Union)</h3>
+            <p><strong>النص:</strong> Union of sets <span class="math">A</span> and <span class="math">B</span> is
+                another set <span class="math">C</span> whose elements are those that are in either <span
+                    class="math">A</span> or <span class="math">B</span>, and is denoted by <span class="math">A&cup;
+                    B</span>.</p>
+            <p><strong>النص:</strong> Where there is no confusion, it will also be represented as <span
+                    class="math">A+B</span>.</p>
+            <p><strong>الشرح:</strong> الاتحاد يمثل العناصر الموجودة في <span class="math">A</span> **أو** <span
+                    class="math">B</span>، ويُرمز له بـ <span class="math">A&cup; B</span> أو <span
+                    class="math">A+B</span>.</p>
+
+            <h3>2. التقاطع (Intersection)</h3>
+            <p><strong>النص:</strong> Intersection of the sets <span class="math">A</span> and <span
+                    class="math">B</span> is another set <span class="math">C</span> whose elements are the same as
+                those in both <span class="math">A</span> and <span class="math">B</span> and is denoted by <span
+                    class="math">A&cap; B</span>.</p>
+            <p><strong>النص:</strong> Where there is no confusion, it will also be represented by <span
+                    class="math">AB</span>.</p>
+            <p><strong>الشرح:</strong> التقاطع يمثل العناصر **المشتركة فقط** بين <span class="math">A</span> **و** <span
+                    class="math">B</span>، ويُرمز له بـ <span class="math">A&cap; B</span> أو <span
+                    class="math">AB</span>.</p>
+
+            <h3>3. المتممة (Complement)</h3>
+            <p><strong>النص:</strong> Complement of <span class="math">A</span> denoted by <span class="math"><span
+                        class="overline">A</span></span> (أو <span class="math">A^c</span>) is the elements in <span
+                    class="math">H</span> not contained in <span class="math">A</span>.</p>
+            <p><strong>الشرح:</strong> متممة المجموعة <span class="math">A</span> هي جميع العناصر الموجودة في فضاء
+                العينة <span class="math">H</span> ولكنها ليست في <span class="math">A</span>، وتمثل **"عدم وقوع الحدث
+                A"**.</p>
+
+            <h3>4. المجموعات المنفصلة أو الأحداث المتنافية (Disjoint / Mutually Exclusive)</h3>
+            <p><strong>النص:</strong> Disjoint sets <span class="math">A</span> and <span class="math">B</span> are
+                called also mutually exclusive if their intersection is empty, <span class="math">A&cap; B =
+                    &emptyset;</span>.</p>
+            <p><strong>الشرح:</strong> تكون المجموعات متنافية إذا لم يكن بينها أي عنصر مشترك (تقاطعها هو المجموعة
+                الخالية <span class="math">&emptyset;</span>).</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-5">الشريحة 5: قواعد وقوانين نظرية المجموعات (Union & Intersection)</h2>
+        <div class="slide-content">
+            <img src="img/img-5.png" alt="صورة الشريحة 5">
+
+            <h3>1. الإطار الأساسي</h3>
+            <p><strong>النص:</strong> Events can be described by sets.</p>
+            <p><strong>الشرح:</strong> الأحداث يتم تمثيلها كمجموعات.</p>
+
+            <h3>2. قوانين الاتحاد (<span class="math">A&cup; B</span>)</h3>
+            <ul>
+                <li><strong>قانون التجميع (Associative law):</strong> <span class="math-expr">(A&cup; B)&cup; C = A&cup;
+                        (B&cup; C) = A&cup; B&cup; C</span></li>
+                <li><strong>قانون التبادل (Commutative law):</strong> <span class="math-expr">A&cup; B = B&cup; A</span>
+                </li>
+                <li><strong>المجموعة الخالية:</strong> <span class="math-expr">A&cup; &emptyset; = A</span></li>
+                <li><strong>المجموعة الجزئية:</strong> <span class="math-expr">A&cup; B = A</span> if <span
+                        class="math">B&subset; A</span></li>
+            </ul>
+
+            <h3>3. قوانين التقاطع (<span class="math">A&cap; B</span>)</h3>
+            <ul>
+                <li><strong>قانون التجميع (Associative law):</strong> <span class="math-expr">(A&cap; B)&cap; C = A&cap;
+                        (B&cap; C) = A&cap; B&cap; C</span></li>
+                <li><strong>قانون التبادل (Commutative law):</strong> <span class="math-expr">A&cap; B = B&cap; A</span>
+                </li>
+                <li><strong>المجموعات المنفصلة (Disjoint sets):</strong> <span class="math-expr">A&cap; B =
+                        &emptyset;</span></li>
+                <li><strong>المجموعة الخالية:</strong> <span class="math-expr">A&cap; &emptyset; = &emptyset;</span>
+                </li>
+                <li><strong>المجموعة الجزئية:</strong> <span class="math-expr">A&cap; B = B</span> if <span
+                        class="math">B&subset; A</span></li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-6">الشريحة 6: قوانين نظرية المجموعات (التوزيع، المساواة، والمتممة، ودي مورغان)</h2>
+        <div class="slide-content">
+            <img src="img/img-6.png" alt="صورة الشريحة 6">
+
+            <h3>1. قانون التوزيع (Distributive Law)</h3>
+            <p><strong>النص:</strong> Distributive law: <span class="math-expr">A&cap; (B&cup; C) = (A&cap; B)&cup;
+                    (A&cap; C)</span></p>
+            <p><strong>الشرح:</strong> توزيع التقاطع على الاتحاد.</p>
+
+            <h3>2. المساواة (Equality)</h3>
+            <p><strong>النص:</strong> Equality: <span class="math-expr">A=B</span>, if <span class="math">A&subset;
+                    B</span> and <span class="math">B&subset; A</span></p>
+            <p><strong>الشرح:</strong> المجموعتان متساويتان إذا كانت كل واحدة منهما مجموعة جزئية من الأخرى.</p>
+
+            <h3>3. المتممة (Complement)</h3>
+            <p><strong>النص المصحح:</strong> Complement: <span class="math-expr"><span class="overline"><span
+                            class="overline">A</span></span>=A</span>, <span class="math-expr">A&cap; <span
+                        class="overline">A</span> = &emptyset;</span>, <span class="math-expr">A&cup; <span
+                        class="overline">A</span> = H</span> (أو <span class="math">&Omega;</span>), <span
+                    class="math-expr">A&cap; B = &emptyset; &implies; B&subset; <span class="overline">A</span></span>
+            </p>
+            <p><strong>الشرح:</strong> يشمل خواص المتممة الأساسية (متممة المتممة، تقاطعها واتحادها مع المجموعة الأصلية).
+            </p>
+
+            <h3>4. قوانين دي مورغان (De Morgan's law)</h3>
+            <p><strong>القانون الأول:</strong> <span class="math-expr"><span class="overline">(A&cup; B)</span> = <span
+                        class="overline">A</span>&cap; <span class="overline">B</span></span></p>
+            <p><strong>القانون الثاني:</strong> <span class="math-expr"><span class="overline">(A&cap; B)</span> = <span
+                        class="overline">A</span>&cup; <span class="overline">B</span></span></p>
+            <p><strong>الشرح:</strong> تربط قوانين دي مورغان بين متممة عمليات الاتحاد والتقاطع.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-7">الشريحة 7: المصطلحات الأساسية في الاحتمالية - الفضاء الاحتمالي</h2>
+        <div class="slide-content">
+            <img src="img/img-7.png" alt="صورة الشريحة 7">
+
+            <h3>1. تعريف الفضاء الاحتمالي (Probability Space)</h3>
+            <p><strong>النص:</strong> Probability space <span class="math-expr">=(H, A, P)</span></p>
+            <p><strong>الشرح:</strong> يتكون الفضاء الاحتمالي من ثلاثة عناصر: <span class="math">H</span> (فضاء
+                العينة/النتائج)، <span class="math">A</span> (مجال الأحداث)، و <span class="math">P</span> (دالة
+                الاحتمال).</p>
+
+            <h3>2. تعريف مجموعة النتائج (Set of results - <span class="math">H</span>)</h3>
+            <p><strong>النص المصحح:</strong> Definition: Set of results (outcomes) <span class="math-expr">H=\{\eta_1,
+                    \eta_2, \eta_3, \dots\}</span></p>
+            <p><strong>النص:</strong> Set of results <span class="math">H</span> = set of all possible results <span
+                    class="math">&eta;</span> of a stochastic experiment.</p>
+            <p><strong>النص:</strong> After a stochastic experiment, there is exactly one result = one of the elementary
+                results.</p>
+            <p><strong>الشرح:</strong> <span class="math">H</span> هي مجموعة جميع النواتج الممكنة (<span
+                    class="math">&eta;</span>). عند إجراء التجربة، تقع نتيجة أولية واحدة فقط.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-8">الشريحة 8: خواص النتائج الأولية وأمثلة على فضاء العينة</h2>
+        <div class="slide-content">
+            <img src="img/img-8.png" alt="صورة الشريحة 8">
+
+            <h3>1. خاصية تَنَافُر النتائج الأولية (Disjoint Elementary Results)</h3>
+            <p><strong>النص:</strong> (Elementary) results are disjoint; that means: they cannot happen at the same
+                time.</p>
+            <p><strong>الشرح:</strong> النتائج الأولية متنافية، أي لا يمكن أن تقع في نفس الوقت.</p>
+
+            <h3>2. رموز المتغيرات الشائعة (Variables in Literature)</h3>
+            <p><strong>النص المصحح:</strong> Variables in literature: often <span class="math">&Omega;</span> instead of
+                <span class="math">H</span> and <span class="math">&omega;</span> instead of <span
+                    class="math">&eta;</span></p>
+            <p><strong>الشرح المصحح:</strong> تنويه لاستخدام رموز بديلة شائعة في المراجع: <span
+                    class="math">&Omega;</span> بدل <span class="math">H</span> و <span class="math">&omega;</span> بدل
+                <span class="math">&eta;</span>.</p>
+
+            <h3>3. أمثلة على فضاء العينة (<span class="math">H</span>)</h3>
+            <ul>
+                <li><strong>رمي النرد (Throwing dice):</strong>
+                    <p><strong>النص المصحح:</strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
+                        the symbols <span class="math">i=1...6</span> of the cube: <span class="math-expr">H=\{\eta_1,
+                            \eta_2, \eta_3, \eta_4, \eta_5, \eta_6\}</span></p>
+                </li>
+                <li><strong>رمي كرة لعبة الروليت (Roulette game):</strong>
+                    <p><strong>النص المصحح:</strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
+                        the numbers <span class="math">i=0...36</span>: <span class="math-expr">H=\{\eta_1, \eta_2,
+                            \eta_3, \dots, \eta_{36}\}</span></p>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-9">الشريحة 9: تعريف مجال الأحداث (Field of Events - <span class="math">A</span>)</h2>
+        <div class="slide-content">
+            <img src="img/img-9.png" alt="صورة الشريحة 9">
+
+            <h3>1. تعريف مجال الأحداث (<span class="math">A</span>)</h3>
+            <p><strong>النص:</strong> Field of events = set of arbitrarily chosen subsets of the set of results <span
+                    class="math">H</span> with the following properties:</p>
+            <ol>
+                <li>
+                    <p><strong>النص:</strong> <span class="math">H&in; A</span></p>
+                </li>
+                <li>
+                    <p><strong>النص:</strong> from it if <span class="math">A&in; A</span> it follows <span
+                            class="math"><span class="overline">A</span>&in; A</span></p>
+                </li>
+                <li>
+                    <p><strong>النص المصحح:</strong> from <span class="math">A_1, A_2, \dots &in; A</span> it follows
+                        <span class="math-expr">&bigcup_{i=1}^N A_i &in; A</span></p>
+                </li>
+            </ol>
+            <p><strong>الشرح:</strong> مجال الأحداث هو مجموعة من المجموعات الجزئية لـ <span class="math">H</span> ويجب
+                أن يكون مغلقاً تحت عمليات المتممة والاتحاد، وأن يحتوي على <span class="math">H</span> نفسها.</p>
+
+            <h3>2. العلاقة بين النتائج والأحداث</h3>
+            <p><strong>النص:</strong> A stochastic experiment gives exactly one (elementary) result, but it may cause to
+                several events.</p>
+            <p><strong>النص:</strong> Two events which do not include a common elementary result, are disjoint – the
+                events cannot happen at the same time.</p>
+
+            <h3>3. الحد الأقصى لعدد الأحداث الممكنة</h3>
+            <p><strong>النص المصحح:</strong> Given <span class="math">N</span> elementary results, the maximum possible
+                number of events in the field of events is: <span class="math-expr">N_{\max} = 2^N</span></p>
+            <p><strong>الشرح:</strong> العدد الأقصى للأحداث يساوي <span class="math">2</span> مرفوعاً لقوة عدد النتائج
+                الأولية (<span class="math">N</span>).</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-10">الشريحة 10: تعريف الاحتمال: مسلمات كولموغوروف (Kolmogorov's Axioms)</h2>
+        <div class="slide-content">
+            <img src="img/img-10.png" alt="صورة الشريحة 10">
+
+            <h3>المسلمات (Axioms)</h3>
+            <ol>
+                <li>
+                    <p><strong>مسلمة عدم السلبية (Non-Negativity):</strong> <span class="math-expr">P(A)&ge; 0</span>
+                    </p>
+                </li>
+                <li>
+                    <p><strong>مسلمة التطبيع (Normalization):</strong> <span class="math-expr">P(H)=1</span> (حيث <span
+                            class="math">&Omega;</span> هو فضاء العينة أو الحدث المؤكد <span class="math">H</span>)</p>
+                </li>
+                <li>
+                    <p><strong>مسلمة الجمع (Additivity):</strong> <span class="math-expr">P(A&cup; B) = P(A) +
+                            P(B)</span>, if <span class="math">A</span> and <span class="math">B</span> are disjoint
+                        events</p>
+                </li>
+            </ol>
+            <p><strong>الشرح:</strong> دالة الاحتمال (<span class="math">P</span>) يجب أن تتبع هذه المسلمات الثلاثة
+                لتكون صحيحة رياضياً.</p>
+
+            <h3>وصف الاحتمال بناءً على المسلمات</h3>
+            <p><strong>النص:</strong> The probability is: a non-negative (غير سالب), a normalized (مُطبع), and an
+                additive function (دالة جمعية) defined over the field of events.</p>
+
+            <h3>الخصائص المشتقة (Properties)</h3>
+            <ul>
+                <li>
+                    <p><strong>نطاق القيم (Range of values):</strong> <span class="math-expr">0&le; P&le; 1</span></p>
+                </li>
+                <li>
+                    <p><strong>الحدث المستحيل (Impossible event):</strong> <span
+                            class="math-expr">P(&emptyset;)=0</span> (حيث <span class="math">&emptyset;</span> هي
+                        المجموعة الخالية)</p>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+
+        <h2 id="slide-11">الشريحة 11: الأحداث غير المتنافية، الاحتمال المشترك والاحتمال الشرطي</h2>
+        <div class="slide-content">
+            <img src="img/img-11.png" alt="صورة الشريحة 11">
+
+            <h3>1. الأحداث غير المتنافية (Non-disjoint events <span class="math">A</span> and <span
+                    class="math">B</span>)</h3>
+            <p>توضح هذه الجزئية كيفية اشتقاق قانون جمع الاحتمالات العام، الذي يُستخدم عندما تكون الأحداث <span
+                    class="math">A</span> و <span class="math">B</span> غير متنافية (أي يوجد بينهما تقاطع <span
+                    class="math-expr">A &cap; B &ne; &emptyset;</span>).</p>
+            <p><strong>اشتقاق قاعدة الجمع العامة</strong>:</p>
+            <ul>
+                <li>تقسيم الاتحاد (<span class="math">A &cup; B</span>): يتم تقسيم اتحاد الحدثين <span
+                        class="math">A</span> و <span class="math">B</span> إلى مجموعتين منفصلتين (متنافيتين) يمكن تطبيق
+                    مسلمة الجمع لكولموغوروف (المسلمة الثالثة) عليهما:
+                    <span class="math-expr">A &cup; B = A &cup; (B &cap; <span class="overline">A</span>)</span>.
+                    <p style="margin-right: 20px; margin-top: 5px; font-style: normal; font-weight: normal;">الشرح:
+                        الحدث <span class="math">A &cup; B</span> هو اتحاد <span class="math">A</span> والجزء من <span
+                            class="math">B</span> الذي لا يشترك مع <span class="math">A</span> (وهو <span
+                            class="math-expr">B &cap; <span class="overline">A</span></span>). هاتان المجموعتان
+                        متنافيتان، لذا يمكن جمعهما مباشرة.</p>
+                </li>
+                <li>تقسيم الحدث <span class="math">B</span>: يتم تقسيم الحدث <span class="math">B</span> إلى مجموعتين
+                    متنافيتين:
+                    <span class="math-expr">B = (A &cap; B) &cup; (<span class="overline">A</span> &cap; B)</span>.
+                    <p style="margin-right: 20px; margin-top: 5px; font-style: normal; font-weight: normal;">بتطبيق
+                        الاحتمال على هذا التقسيم نحصل على: <span class="math-expr">P(B) = P(A &cap; B) + P(<span
+                                class="overline">A</span> &cap; B)</span>.</p>
+                </li>
+                <li>**الصيغة النهائية (قانون الجمع العام)**:
+                    <span class="math-expr">P(A &cup; B) = P(A) + P(B) - P(A &cap; B)</span>.
+                </li>
+            </ul>
+
+            <h3>2. تعريف الاحتمال المشترك (Joint Probability: )</h3>
+            <span class="math-expr">P(A &cap; B)</span>
+            <p>**النص**: الاحتمال المشترك <span class="math-expr">P(A &cap; B)</span> هو احتمال وقوع الحدثين <span
+                    class="math">A</span> و <span class="math">B</span> في نفس الوقت.</p>
+
+            <h3>3. تعريف الاحتمال الشرطي (Conditional Probability: )</h3>
+            <span class="math-expr">P(A | B)</span>
+            <p>**النص**: الاحتمال الشرطي <span class="math-expr">P(A | B)</span> هو احتمال وقوع الحدث <span
+                    class="math">A</span> بشرط وقوع الحدث <span class="math">B</span> (<span class="math-expr">P(B) >
+                    0</span>).</p>
+            <p>**القانون**: <span class="math-expr">P(A | B) = <span class="frac"><span class="frac-num">P(A &cap;
+                            B)</span><span>P(B)</span></span></span>.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-12">الشريحة 12: خصائص الاحتمال الشرطي وقاعدة الجمع العامة الشرطية</h2>
+        <div class="slide-content">
+            <img src="img/img-12.png" alt="صورة الشريحة 12">
+
+            <h3>1. خصائص الاحتمال الشرطي (مسلمات كولموغوروف المشروطة)</h3>
+            <p>باعتبار <span class="math">B</span> هو فضاء العينة الجديد، فإن الاحتمال الشرطي يطيع نفس مسلمات الاحتمال
+                القياسية:</p>
+            <ul>
+                <li>**عدم السلبية (Nonnegativity)**: <span class="math-expr">P(A | B) &ge; 0</span>.</li>
+                <li>**التطبيع (Normalization)**: <span class="math-expr">P(H | B) = 1</span>.
+                    <br />(التفسير الرياضي: <span class="math-expr">P(H | B) = <span class="frac"><span
+                                class="frac-num">P(H &cap; B)</span><span>P(B)</span></span> = <span class="frac"><span
+                                class="frac-num">P(B)</span><span>P(B)</span></span> = 1</span>)
+                </li>
+                <li>**الجمع (Additivity)**: للأحداث المتنافية <span class="math">A_1</span> و <span
+                        class="math">A_2</span> (<span class="math-expr">A_1 &cap; A_2 = &emptyset;</span>):
+                    <span class="math-expr">P(A_1 &cup; A_2 | B) = P(A_1 | B) + P(A_2 | B)</span>.
+                </li>
+            </ul>
+
+            <h3>2. علاقة الأحداث المتنافية بالاحتمال الشرطي</h3>
+            <p>**النص**: إذا كان <span class="math-expr">A &cap; B = &emptyset;</span> (أي <span class="math">A</span> و
+                <span class="math">B</span> متنافيان)، فإن:</p>
+            <p>**النتيجة**: <span class="math-expr">P(A | B) = <span class="frac"><span class="frac-num">P(A &cap;
+                            B)</span><span>P(B)</span></span> = 0</span>. (إذا وقع <span class="math">B</span>، فمن
+                المستحيل أن يقع <span class="math">A</span>).</p>
+
+            <h3>3. قانون الجمع العام للاحتمالات الشرطية (للأحداث غير المتنافية)</h3>
+            <p>**القانون**: <span class="math-expr">P(A_1 &cup; A_2 | B) = P(A_1 | B) + P(A_2 | B) - P(A_1 &cap; A_2 |
+                    B)</span>.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-13">الشريحة 13: حالات خاصة للاحتمال الشرطي: علاقات الاحتواء</h2>
+        <div class="slide-content">
+            <img src="img/img-13.png" alt="صورة الشريحة 13">
+
+            <h3>1. الحالة الأولى: <span class="math">A</span> جزء من <span class="math">B</span></h3>
+            <p>**الشرط**: <span class="math-expr">A &subset; B &rArr; A &cap; B = A</span>. (أي وقوع <span
+                    class="math">A</span> يستلزم وقوع <span class="math">B</span>).</p>
+            <p>**القانون**: <span class="math-expr">P(A | B) = <span class="frac"><span class="frac-num">P(A &cap;
+                            B)</span><span>P(B)</span></span> = <span class="frac"><span
+                            class="frac-num">P(A)</span><span>P(B)</span></span> &ge; P(A)</span>.</p>
+
+            <h3>2. الحالة الثانية: <span class="math">B</span> جزء من <span class="math">A</span></h3>
+            <p>**الشرط**: <span class="math-expr">B &subset; A &rArr; A &cap; B = B</span>. (أي وقوع <span
+                    class="math">B</span> يستلزم وقوع <span class="math">A</span>).</p>
+            <p>**القانون**: <span class="math-expr">P(A | B) = <span class="frac"><span class="frac-num">P(A &cap;
+                            B)</span><span>P(B)</span></span> = <span class="frac"><span
+                            class="frac-num">P(B)</span><span>P(B)</span></span> = 1</span>.</p>
+            <p>**المعنى**: إذا وقع <span class="math">B</span>، و <span class="math">B</span> محتواة بالكامل في <span
+                    class="math">A</span>، فإن وقوع <span class="math">A</span> مؤكد (احتماله 1).</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-14">الشريحة 14: طرائق تعريف الاحتمال (Defining Probability)</h2>
+        <div class="slide-content">
+            <img src="img/img-14.png" alt="صورة الشريحة 14">
+
+            <h3>1. التعريف الكلاسيكي (Classical Definition)</h3>
+            <p>**الشرط**: فضاء عينة <span class="math">H</span> يحتوي على <span class="math">N</span> من النتائج الأولية
+                متساوية الاحتمال (equiprobable).</p>
+            <p>**القانون**: <span class="math-expr">P(A) = <span class="frac"><span
+                            class="frac-num">N_A</span><span>N</span></span> = <span class="frac"><span
+                            class="frac-num"> {عدد النتائج الإيجابية } (N_A)</span><span> {العدد الكلي للنتائج
+                            الممكنة } (N)</span></span></span>.</p>
+
+            <h3>2. تعريف التكرار النسبي (Relative Frequency)</h3>
+            <p>**النص**: تجربة عشوائية أُجريت <span class="math">n</span> من المرات. وقع الحدث <span
+                    class="math">A</span> عدد <span class="math">n_A</span> من المرات.</p>
+            <p>**القانون**: <span class="math-expr"><span class="tilde">P</span>(A) = <span class="frac"><span
+                            class="frac-num">n_A</span><span>n</span></span> = <span class="frac"><span
+                            class="frac-num"> {عدد مرات وقوع الحدث A}</span><span> {العدد الكلي للتجارب
+                            العشوائية}</span></span></span>.</p>
+            <p>**ملاحظة**: التكرار النسبي هو تقدير (Estimate) للاحتمال، وليس الاحتمال الحقيقي.</p>
+
+            <h3>3. تعريف الاحتمال كحد للتكرار النسبي (Limit Definition)</h3>
+            <p>**القانون (قانون الأعداد الكبيرة)**:</p>
+            <p><span class="math-expr">P(A) = <span class="lim-expr"><span
+                            class="lim-expr-text">lim</span><span>n→∞</span></span> <span class="tilde">P</span>(A) =
+                    <span class="frac"><span class="frac-num">n_A</span><span>n</span></span> = <span class="frac"><span
+                            class="frac-num">number of events A</span><span>total number of stochastic
+                            experiments</span></span></span></p>
+            <p>**الشرح**: الاحتمال هو القيمة التي يقترب منها التكرار النسبي عندما يؤول عدد التجارب إلى ما لا نهاية. هذا
+                التعريف يربط بين النظرية (الاحتمال) والتجربة (التكرار النسبي).</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-15">الشريحة 15: مثال تطبيقي: رمي النرد</h2>
+        <div class="slide-content">
+            <img src="img/img-15.png" alt="صورة الشريحة 15">
+
+            <h3>1. فضاء العينة والاحتمالات الفردية</h3>
+            <p>رمي نرد عادل. <span class="math-expr">H = \{ 1, 2, 3, 4, 5, 6 \}</span>. <span
+                    class="math-expr">P(\eta_i) = <span class="frac"><span
+                            class="frac-num">1</span><span>6</span></span></span>.</p>
+            <p>**تعريف الأحداث**:
+                <br />الحدث <span class="math">A</span> (عدد زوجي): <span class="math-expr">A = \{2, 4, 6\}</span>.
+                <br />الحدث <span class="math">B</span> (عدد فردي): <span class="math-expr">B = \{1, 3, 5\}</span>.
+                <br />الحدث <span class="math">C</span> (عدد أولي): <span class="math-expr">C = \{2, 3, 5\}</span>.
+            </p>
+            <p>**الاحتمالات الفردية**: <span class="math-expr">P(A) = P(B) = P(C) = <span class="frac"><span
+                            class="frac-num">3</span><span>6</span></span> = <span class="frac"><span
+                            class="frac-num">1</span><span>2</span></span></span>.</p>
+
+            <h3>2. الاحتمالات المشتركة والشرطية</h3>
+            <table style="width:100%; text-align:right; border-collapse: collapse;">
+                <tr>
+                    <th style="border: 1px solid #ccc; padding: 8px;">التقاطع</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">الاحتمال المشترك</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">الاحتمال الشرطي P(C | A)</th>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">A &cap; C = \{2\}</span>
+                    </td>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">P(A &cap; C) = <span
+                                class="frac"><span class="frac-num">1</span><span>6</span></span></span></td>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">P(C | A) = <span
+                                class="frac"><span class="frac-num">1/6</span><span>1/2</span></span> = <span
+                                class="frac"><span class="frac-num">1</span><span>3</span></span></span></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">B &cap; C = \{3,
+                            5\}</span></td>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">P(B &cap; C) = <span
+                                class="frac"><span class="frac-num">2</span><span>6</span></span> = <span
+                                class="frac"><span class="frac-num">1</span><span>3</span></span></span></td>
+                    <td style="border: 1px solid #ccc; padding: 8px;"> <span class="math-expr">P(C | B) = <span
+                                class="frac"><span class="frac-num">1/3</span><span>1/2</span></span> = <span
+                                class="frac"><span class="frac-num">2</span><span>3</span></span></span></td>
+                </tr>
+            </table>
+            <p>**ملاحظة حول <span class="math">A</span> و <span class="math">B</span>**: هما حدثان متنافيان، <span
+                    class="math-expr">A &cap; B = &emptyset;</span>، لذا <span class="math-expr">P(A &cap; B) =
+                    0</span>.</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-16">الشريحة 16: مثال تطبيقي: سحب كرتين من صندوق (طريقة العد)</h2>
+        <div class="slide-content">
+            <img src="img/img-16.png" alt="صورة الشريحة 16">
+
+            <h3>1. وصف التجربة وفضاء العينة</h3>
+            <p>**الصندوق**: يحتوي على 3 كرات بيضاء (W) و 2 كرة حمراء (R) (المجموع 5 كرات). يتم السحب بالترتيب وبدون
+                إرجاع.</p>
+            <p>**الحدث <span class="math">A</span>**: سحب كرة بيضاء أولاً، ثم كرة حمراء ثانياً (<span
+                    class="math-expr">W_1 &cap; R_2</span>).</p>
+            <p>**فضاء العينة <span class="math">H</span>**: عدد النتائج الكلية (تباديل) هو: <span class="math-expr">N =
+                    5 * 4 = 20</span>.</p>
+
+            <h3>2. حساب الاحتمال بطريقة العد</h3>
+            <ul>
+                <li>**عدد نتائج الحدث <span class="math">A</span>** (<span class="math-expr">N_A</span>):
+                    <br />عدد طرق اختيار الأبيض أولاً (3) &times; عدد طرق اختيار الأحمر ثانياً (2) = <span
+                        class="math-expr">N_A = 3 * 2 = 6</span> نتائج.
+                </li>
+                <li>**الاحتمال <span class="math">P(A)</span>**:
+                    <span class="math-expr">P(A) = <span class="frac"><span
+                                class="frac-num">N_A</span><span>N</span></span> = <span class="frac"><span
+                                class="frac-num">6</span><span>20</span></span> = <span class="frac"><span
+                                class="frac-num">3</span><span>10</span></span> = 0.3</span>.
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-17">الشريحة 17: مثال تطبيقي: سحب كرتين من صندوق (طريقة الاحتمال الشرطي)</h2>
+        <div class="slide-content">
+            <img src="img/img-17.png" alt="صورة الشريحة 17">
+
+            <p>يتم حل نفس المسألة (سحب <span class="math">W_1</span> ثم <span class="math">R_2</span> بدون إرجاع)
+                باستخدام قاعدة الضرب للاحتمالات الشرطية.</p>
+            <h3>1. احتمال الحدث الأول (<span class="math">W_1</span>)</h3>
+            <p>احتمال سحب كرة بيضاء أولاً (من 5 كرات): <span class="math-expr">P(W_1) = <span class="frac"><span
+                            class="frac-num">3</span><span>5</span></span></span>.</p>
+
+            <h3>2. الاحتمال الشرطي للحدث الثاني (<span class="math">R_2 | W_1</span>)</h3>
+            <p>احتمال سحب كرة حمراء ثانياً، بشرط أن الأولى بيضاء (يتبقى 4 كرات، منها 2 حمراء):</p>
+            <p><span class="math-expr">P(R_2 | W_1) = <span class="frac"><span
+                            class="frac-num">2</span><span>4</span></span> = <span class="frac"><span
+                            class="frac-num">1</span><span>2</span></span></span>.</p>
+
+            <h3>3. الاحتمال المشترك (قاعدة الضرب)</h3>
+            <p>**القانون**: <span class="math-expr">P(W_1 &cap; R_2) = P(R_2 | W_1)  *  P(W_1)</span>.</p>
+            <p>**الحساب**: <span class="math-expr">P(W_1 &cap; R_2) = <span class="frac"><span
+                            class="frac-num">1</span><span>2</span></span>  *  <span class="frac"><span
+                            class="frac-num">3</span><span>5</span></span> = <span class="frac"><span
+                            class="frac-num">3</span><span>10</span></span> = 0.3</span>.</p>
+            <p>**النتيجة**: النتيجة مطابقة للطريقة الكلاسيكية (طريقة العد).</p>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-18">الشريحة 18: قاعدة الضرب للاحتمالات وصيغة بايز</h2>
+        <div class="slide-content">
+            <img src="img/img-18.png" alt="صورة الشريحة 18">
+
+            <h3>1. قاعدة الضرب للاحتمالات (Multiplication Rule)</h3>
+            <p>يمكن التعبير عن الاحتمال المشترك لحدثين بضرب الاحتمال الشرطي في احتمال الحدث المشروط به:</p>
+            <ul>
+                <li><span class="math-expr">P(A &cap; B) = P(A | B)  *  P(B)</span></li>
+                <li><span class="math-expr">P(A &cap; B) = P(B | A)  *  P(A)</span></li>
+            </ul>
+
+            <h3>2. صيغة بايز (Bayes' Formula)</h3>
+            <p>**اشتقاق**: بمساواة قاعدتي الضرب أعلاه نحصل على: <span class="math-expr">P(A | B)  *  P(B) = P(B | A)
+                     *  P(A)</span>.</p>
+            <p>**الصيغة** (Bayes' Formula):</p>
+            <p><span class="math-expr">P(B | A) = <span class="frac"><span class="frac-num">P(A | B)  * 
+                            P(B)</span><span>P(A)</span></span></span></p>
+            <p>**مكونات الصيغة**:</p>
+            <ul>
+                <li><span class="math-expr">P(B)</span>: الاحتمال القبلي (Prior Probability) - اعتقادنا قبل رؤية
+                    البيانات <span class="math">A</span>.</li>
+                <li><span class="math-expr">P(A | B)</span>: احتمال الملاحظة في ظل السبب (Likelihood) - احتمالية حدوث
+                    <span class="math">A</span> إذا كان <span class="math">B</span> صحيحاً.</li>
+                <li><span class="math-expr">P(B | A)</span>: الاحتمال البعدي/اللاحق (Posterior Probability) - اعتقادنا
+                    بعد رؤية البيانات <span class="math">A</span>.</li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-19">الشريحة 19: تعريف: الاستقلالية الإحصائية (Statistical Independence)</h2>
+        <div class="slide-content">
+            <img src="img/img-19.png" alt="صورة الشريحة 19">
+
+            <h3>1. الاستقلالية لحدثين (<span class="math">A</span> و <span class="math">B</span>)</h3>
+            <p>يقال أن الحدثين <span class="math">A</span> و <span class="math">B</span> مستقلان إحصائياً إذا كان وقوع
+                أحدهما لا يؤثر على احتمال وقوع الآخر. ويتحقق هذا إذا تحقق الشرط الآتي:</p>
+            <p><span class="math-expr">P(A &cap; B) = P(A)  *  P(B)</span></p>
+
+            <h3>2. النتائج المترتبة على الاستقلالية</h3>
+            <p>في حالة الاستقلالية، يصبح الاحتمال الشرطي هو الاحتمال غير المشروط (أي أن الشرط لا يغير الاحتمال):</p>
+            <p><span class="math-expr">P(A | B) = P(A) &nbsp;&nbsp;&amp;&nbsp;&nbsp; P(B | A) = P(B)</span></p>
+
+            <h3>3. الاستقلالية لثلاثة أحداث (<span class="math">A, B, C</span>)</h3>
+            <p>تُعتبر الأحداث الثلاثة مستقلة إذا تحقق الشرط المشترك (Mutual Independence) بالإضافة إلى الاستقلالية
+                الزوجية (Pairwise Independence). يجب تحقق الشروط الأربعة التالية:</p>
+            <ul>
+                <li>**استقلالية زوجية**:
+                    <br /><span class="math-expr">P(A &cap; B) = P(A)  *  P(B)</span>
+                    <br /><span class="math-expr">P(A &cap; C) = P(A)  *  P(C)</span>
+                    <br /><span class="math-expr">P(B &cap; C) = P(B)  *  P(C)</span>
+                </li>
+                <li>**استقلالية مشتركة**:
+                    <br /><span class="math-expr">P(A &cap; B &cap; C) = P(A)  *  P(B)  *  P(C)</span>
+                </li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-20">الشريحة 20: مثال تطبيقي: الاستقلالية الإحصائية (سحب مع الإرجاع)</h2>
+        <div class="slide-content">
+            <img src="img/img-20.png" alt="صورة الشريحة 20">
+
+            <p>**التجربة**: سحب رقمين من المجموعة {1, 2, 3} **مع الإرجاع**. هذا يجعل السحبين مستقلين.</p>
+            <h3>1. فضاء العينة والاحتمالات الفردية</h3>
+            <p>**فضاء العينة <span class="math">H</span>**: <span class="math">N = 9</span> نتائج (<span
+                    class="math-expr">H=\{11, 12, \dots, 33\}</span>). <span class="math-expr">P(\eta_i) = <span
+                        class="frac"><span class="frac-num">1</span><span>9</span></span></span>.</p>
+
+            <h3>2. الأحداث والاحتمالات الفردية</h3>
+            <p>**الحدث <span class="math">A</span>** (الأول 1): <span class="math-expr">A = \{11, 12, 13\}</span>. <span
+                    class="math-expr">P(A) = <span class="frac"><span class="frac-num">3</span><span>9</span></span> =
+                    <span class="frac"><span class="frac-num">1</span><span>3</span></span></span>.</p>
+            <p>**الحدث <span class="math">B</span>** (الثاني 3): <span class="math-expr">B = \{13, 23, 33\}</span>.
+                <span class="math-expr">P(B) = <span class="frac"><span class="frac-num">3</span><span>9</span></span> =
+                    <span class="frac"><span class="frac-num">1</span><span>3</span></span></span>.</p>
+
+            <h3>3. اختبار الاستقلالية (Checking for Independence)</h3>
+            <ul>
+                <li>**الاحتمال المشترك**: <span class="math-expr">A &cap; B = \{13\}</span>. <span class="math-expr">P(A
+                        &cap; B) = <span class="frac"><span class="frac-num">1</span><span>9</span></span></span>.</li>
+                <li>**حاصل ضرب الاحتمالات**: <span class="math-expr">P(A)  *  P(B) = <span class="frac"><span
+                                class="frac-num">1</span><span>3</span></span>  *  <span class="frac"><span
+                                class="frac-num">1</span><span>3</span></span> = <span class="frac"><span
+                                class="frac-num">1</span><span>9</span></span></span>.</li>
+                <li>**النتيجة**: <span class="math-expr"><span class="frac"><span
+                                class="frac-num">1</span><span>9</span></span> = <span class="frac"><span
+                                class="frac-num">1</span><span>9</span></span></span>، الحدثان <span
+                        class="math">A</span> و <span class="math">B</span> **مستقلان إحصائياً**.</li>
+            </ul>
+        </div>
+
+        <hr class="section-separator">
+
+        <h2 id="slide-21">الشريحة 21: مثال تطبيقي: أحداث غير مستقلة (سحب بدون إرجاع)</h2>
+        <div class="slide-content">
+            <img src="img/img-21.png" alt="صورة الشريحة 21 (بدون إرجاع)">
+
+            <p>**التجربة**: سحب رقمين من المجموعة {1, 2, 3} **بدون إرجاع**. هذا يجعل نتيجة السحب الثاني تعتمد على نتيجة
+                السحب الأول.</p>
+            <h3>1. فضاء العينة والاحتمالات الفردية</h3>
+            <p>**فضاء العينة <span class="math">H</span>**: جميع الأزواج المرتبة الممكنة حيث لا تتكرر الأرقام: <span
+                    class="math-expr">H=\{12, 13, 21, 23, 31, 32\}</span>. <span class="math">N=6</span> نتائج. <span
+                    class="math-expr">P(\eta_i) = <span class="frac"><span
+                            class="frac-num">1</span><span>6</span></span></span>.</p>
+
+            <h3>2. الأحداث والاحتمالات الفردية</h3>
+            <p>**الحدث <span class="math">A</span>** (الأول 1): <span class="math-expr">A = \{12, 13\}</span>. <span
+                    class="math-expr">P(A) = <span class="frac"><span class="frac-num">2</span><span>6</span></span> =
+                    <span class="frac"><span class="frac-num">1</span><span>3</span></span></span>.</p>
+            <p>**الحدث <span class="math">B</span>** (الثاني 3): <span class="math-expr">B = \{13, 23\}</span>. <span
+                    class="math-expr">P(B) = <span class="frac"><span class="frac-num">2</span><span>6</span></span> =
+                    <span class="frac"><span class="frac-num">1</span><span>3</span></span></span>.</p>
+
+            <h3>3. اختبار الاستقلالية (Checking for Independence)</h3>
+            <p>يجب اختبار ما إذا كان <span class="math-expr">P(A &cap; B) = P(A)  *  P(B)</span>.</p>
+            <ul>
+                <li>**الاحتمال المشترك**: <span class="math-expr">A &cap; B = \{13\}</span>. <span class="math-expr">P(A
+                        &cap; B) = <span class="frac"><span class="frac-num">1</span><span>6</span></span></span>.</li>
+                <li>**حاصل ضرب الاحتمالات**: <span class="math-expr">P(A)  *  P(B) = <span class="frac"><span
+                                class="frac-num">1</span><span>3</span></span>  *  <span class="frac"><span
+                                class="frac-num">1</span><span>3</span></span> = <span class="frac"><span
+                                class="frac-num">1</span><span>9</span></span></span>.</li>
+                <li>**النتيجة**: <span class="math-expr"><span class="frac"><span
+                                class="frac-num">1</span><span>6</span></span> &ne; <span class="frac"><span
+                                class="frac-num">1</span><span>9</span></span></span>، الحدثان <span
+                        class="math">A</span> و <span class="math">B</span> **ليسا مستقلين إحصائياً** (مرتبطان).</li>
+            </ul>
+        </div>
+
+        </div>
+    </div>
+    
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('h2[id^="slide-"]');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        menuItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === '#' + id) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+
+        <script>
+        // Fix backslash escapes after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.math-expr').forEach(el => {
+                el.innerHTML = el.innerHTML
+                    .replace(/\\cdot/g, '·')
+                    .replace(/\\quad/g, '&nbsp;&nbsp;')
+                    .replace(/\\&/g, '&amp;')
+                    .replace(/\\{/g, '{')
+                    .replace(/\\}/g, '}')
+                    .replace(/\\dots/g, '...')
+                    .replace(/\\eta/g, 'η');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
