@@ -12,7 +12,17 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <!-- header للهاتف -->
+    <div class="mobile-header">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <img src="categories.png" alt="القائمة" class="menu-icon">
+        </button>
+        <div class="mobile-header-title">2- Probability</div>
+    </div>
+    
+
+    
+    <div class="sidebar" id="sidebar">
         <div class="logo">
             <div class="logo-icon">📚</div>
             <span>نظرية المعلومات</span>
@@ -832,11 +842,52 @@
                 item.classList.remove('active');
             });
             element.classList.add('active');
+            
+            // إغلاق القائمة عند النقر على عنصر في الهاتف
+            if (window.innerWidth <= 768) {
+                closeSidebar();
+            }
         }
+        
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('active');
+        }
+        
+        // إغلاق القائمة عند تغيير حجم الشاشة
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+        
+        // تحكم في إظهار/إخفاء header عند التمرير
+        let lastScrollTop = 0;
+        const header = document.querySelector('.mobile-header');
+        
+        document.querySelector('.main-content').addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                const scrollTop = this.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 190) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+        });
         
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('h2[id^="slide-"]');
             const menuItems = document.querySelectorAll('.menu-item');
+            const mainContent = document.querySelector('.main-content');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -850,7 +901,7 @@
                         });
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.5, root: mainContent });
             
             sections.forEach(section => observer.observe(section));
         });

@@ -13,6 +13,7 @@ body {
     display: flex;
     height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 .sidebar {
@@ -22,6 +23,8 @@ body {
     overflow-y: auto;
     box-shadow: 4px 0 20px rgba(0,0,0,0.08);
     border-left: 1px solid #e8eef3;
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -125,6 +128,7 @@ body {
     padding: 45px 55px;
     background: linear-gradient(135deg, #f5f7fa 0%, #e8eef3 100%);
     min-height: 100vh;
+    transition: margin-right 0.3s ease;
 }
 
 .main-content::-webkit-scrollbar {
@@ -408,4 +412,232 @@ table tr:hover {
     background: #f0f7f4;
     transform: scale(1.01);
     transition: all 0.2s ease;
+}
+
+/* header للهاتف */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,255,254,0.98) 50%, rgba(240,247,244,0.95) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(26, 95, 63, 0.12), 0 2px 8px rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(26, 95, 63, 0.08);
+    z-index: 1001;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(26, 95, 63, 0.3) 50%, transparent 100%);
+}
+
+.mobile-header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.mobile-header-title {
+    font-size: 20px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1a5f3f 0%, #2d8659 50%, #1a5f3f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(26, 95, 63, 0.1);
+    letter-spacing: 0.8px;
+    position: relative;
+}
+
+.mobile-header-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #1a5f3f 50%, transparent 100%);
+    border-radius: 1px;
+    opacity: 0.6;
+}
+
+/* زر القائمة للهاتف */
+.menu-toggle {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(26, 95, 63, 0.15);
+    padding: 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(26, 95, 63, 0.1);
+    transition: all 0.2s ease;
+}
+
+.menu-toggle .menu-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: all 0.2s ease;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(85%) saturate(1200%) hue-rotate(140deg) brightness(95%) contrast(95%);
+}
+
+.menu-toggle:hover {
+    background: rgba(26, 95, 63, 0.05);
+    border-color: rgba(26, 95, 63, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(26, 95, 63, 0.15);
+}
+
+.menu-toggle:hover .menu-icon {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(75%) saturate(1100%) hue-rotate(140deg) brightness(90%) contrast(100%);
+    transform: scale(1.1);
+}
+
+.menu-toggle:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(26, 95, 63, 0.1);
+}
+
+.menu-toggle:hover {
+    background: linear-gradient(135deg, #145032 0%, #1f6b47 100%);
+}
+
+
+
+/* التصميم المتجاوب للهاتف */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        padding-top: 70px;
+    }
+
+    
+    .mobile-header {
+        display: flex;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        height: 100vh;
+        z-index: 1000;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    }
+    
+    .sidebar.active {
+        transform: translateX(-280px);
+    }
+    
+    .main-content {
+        width: 100%;
+
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .container {
+        padding: 15px ;
+        margin: 0 0px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 16px;
+        padding: 15px 20px;
+        margin: 30px 0 20px;
+    }
+    
+    h3 {
+        font-size: 15px;
+        margin: 20px 0 12px;
+        padding: 8px 12px;
+    }
+    
+    p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    
+    .slide-content {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .slide-content img {
+        max-width: calc(100% + 30px);
+        margin: 20px auto;
+        transform: translateX(15px);
+        min-height: 200px;
+    }
+    
+    .math-expr {
+        padding: 6px 10px;
+        font-size: 14px;
+        margin: 10px auto;
+    }
+    
+    table {
+        font-size: 13px;
+    }
+    
+    table th,
+    table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 70px 10px 10px;
+    }
+    
+    .container {
+        padding: 20px 15px;
+        margin: 0 5px;
+        border-radius: 16px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    h2 {
+        font-size: 15px;
+        padding: 12px 15px;
+    }
+    
+    .slide-content {
+        padding: 15px 10px;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+    
+    .math-expr {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
 }
