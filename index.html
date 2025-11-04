@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظرية المعلومات والترميز - الصفحة الرئيسية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- header للهاتف -->
+    <div class="mobile-header">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <span class="menu-icon">☰</span>
+        </button>
+        <div class="mobile-header-title">نظرية المعلومات</div>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <div class="logo-icon">📚</div>
+            <span>نظرية المعلومات</span>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">المحاضرات</div>
+            <a href="#lecture-2" class="menu-item active" onclick="setActive(this)">
+                <span>📊</span> المحاضرة الثانية - الاحتمالية
+            </a>
+            <a href="#lecture-3" class="menu-item" onclick="setActive(this)">
+                <span>📈</span> المحاضرة الثالثة - نظرية المعلومات
+            </a>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="container">
+            <h1>نظرية المعلومات والترميز</h1>
+            <p class="welcome-text">مرحباً بك في مجموعة محاضرات نظرية المعلومات والترميز. اختر المحاضرة التي تريد مراجعتها:</p>
+
+            <hr class="section-separator">
+
+            <div class="lectures-grid">
+                <div class="lecture-card" id="lecture-2">
+                    <div class="lecture-header">
+                        <div class="lecture-icon">📊</div>
+                        <h2>المحاضرة الثانية</h2>
+                        <h3>Probability - الاحتمالية</h3>
+                    </div>
+                    
+                    <div class="lecture-content">
+                        <div class="lecture-description">
+                            <p><strong>المواضيع المغطاة:</strong></p>
+                            <ul>
+                                <li> تصنيف الإشارات (حتمية وعشوائية)</li>
+                                <li> نظرية الاحتمالات ونظرية النهاية المركزية</li>
+                                <li> أساسيات نظرية المجموعات</li>
+                                <li> العمليات الأساسية على المجموعات</li>
+                                <li> قوانين دي مورغان</li>
+                                <li> الفضاء الاحتمالي ومسلمات كولموغوروف</li>
+                                <li> الاحتمال المشترك والشرطي</li>
+                                <li> قاعدة بايز والاستقلالية الإحصائية</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="lecture-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">21</span>
+                                <span class="stat-label">شريحة</span>
+                            </div>
+
+                        </div>
+                        
+                        <div class="lecture-actions">
+                            <a href="المحاضرة-2/index.html" class="btn btn-primary">
+                                <span>🔍</span>
+                                عرض المحاضرة
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lecture-card" id="lecture-3">
+                    <div class="lecture-header">
+                        <div class="lecture-icon">📈</div>
+                        <h2>المحاضرة الثالثة</h2>
+                        <h3>Information Theory - نظرية المعلومات</h3>
+                    </div>
+                    
+                    <div class="lecture-content">
+                        <div class="lecture-description">
+                            <p><strong>المواضيع المغطاة:</strong></p>
+                            <ul>
+                                <li> مقدمة في نظرية المعلومات</li>
+                                <li> مفهوم المعلومات والإنتروبيا</li>
+                                <li> قياس كمية المعلومات</li>
+                                <li> الترميز والضغط</li>
+                                <li> قنوات الاتصال</li>
+                                <li> نظرية شانون</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="lecture-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">14</span>
+                                <span class="stat-label">شريحة</span>
+                            </div>
+
+                        </div>
+                        
+                        <div class="lecture-actions">
+                            <a href="المحاضرة-3/web/index.html" class="btn btn-primary">
+                                <span>🔍</span>
+                                عرض المحاضرة
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-separator">
+
+            <div class="info-section">
+                <h2>معلومات إضافية</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">📖</div>
+                        <h3>طريقة الاستخدام</h3>
+                        <p>انقر على "عرض المحاضرة" للوصول إلى المحتوى التفاعلي مع إمكانية التنقل بين الشرائح والبحث في المحتوى.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">📱</div>
+                        <h3>متوافق مع الأجهزة</h3>
+                        <p>جميع المحاضرات مصممة لتعمل بشكل مثالي على أجهزة الكمبيوتر والهواتف الذكية والأجهزة اللوحية.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">🔄</div>
+                        <h3>تحديثات مستمرة</h3>
+                        <p>يتم تحديث المحتوى بانتظام لإضافة محاضرات جديدة وتحسين المحتوى الموجود.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function setActive(element) {
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // إغلاق القائمة عند النقر على عنصر في الهاتف
+            if (window.innerWidth <= 768) {
+                closeSidebar();
+            }
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+        
+        function closeSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('active');
+        }
+        
+        // إغلاق القائمة عند تغيير حجم الشاشة
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+        
+        // تحكم في إظهار/إخفاء header عند التمرير
+        let lastScrollTop = 0;
+        const header = document.querySelector('.mobile-header');
+        
+        document.querySelector('.main-content').addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                const scrollTop = this.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 190) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+        });
+
+        // تمرير سلس للمحاضرات
+        document.querySelectorAll('a[href^="#lecture-"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
