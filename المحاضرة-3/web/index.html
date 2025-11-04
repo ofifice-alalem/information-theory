@@ -29,9 +29,9 @@
 <body>
     <div class="mobile-header">
         <button class="menu-toggle" onclick="toggleSidebar()">
-            <span class="menu-icon" aria-hidden="true">☰</span>
+            <img src="../categories.png" alt="القائمة" class="menu-icon">
         </button>
-        <div class="mobile-header-title">المحاضرة 3</div>
+        <div class="mobile-header-title">3- Information Theory</div>
     </div>
 
     <div class="sidebar" id="sidebar">
@@ -40,6 +40,9 @@
             <span>نظرية المعلومات</span>
         </div>
         <div class="menu-section">
+            <a href="../../index.html" class="menu-item home-btn">
+                <span>🏠</span> الرجوع للرئيسية
+            </a>
             <div class="menu-title">الشرائح</div>
             <nav id="slides-menu"></nav>
         </div>
@@ -64,6 +67,24 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('.mobile-header');
+        
+        document.querySelector('.main-content').addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                const scrollTop = this.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > 190) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+        });
+    </script>
 </body>
 
 </html>

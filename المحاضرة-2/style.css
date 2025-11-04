@@ -122,6 +122,18 @@ body {
     border-radius: 2px 0 0 2px;
 }
 
+.home-btn {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.home-btn:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    transform: translateX(-3px);
+}
+
 .main-content {
     flex: 1;
     overflow-y: auto;
