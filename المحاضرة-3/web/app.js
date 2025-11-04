@@ -62,7 +62,10 @@ function updateActiveMenu() {
 
 function setStatus() {
     const status = document.getElementById('statusText');
-    status.textContent = `${currentIndex + 1} / ${slides.length}`;
+    const statusBottom = document.getElementById('statusTextBottom');
+    const statusText = `${currentIndex + 1} / ${slides.length}`;
+    status.textContent = statusText;
+    if (statusBottom) statusBottom.textContent = statusText;
 }
 
 function formatText(text) {
@@ -152,6 +155,7 @@ async function renderCurrent() {
     const slide = slides[currentIndex];
     if (!slide) return;
     location.hash = `slide-${slide.id}`;
+    document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('slideTitle').textContent = slide.title;
     const img = document.getElementById('slideImage');
     img.src = slide.image;
@@ -182,6 +186,8 @@ async function renderCurrent() {
     updateActiveMenu();
     document.getElementById('prevBtn').disabled = currentIndex === 0;
     document.getElementById('nextBtn').disabled = currentIndex === slides.length - 1;
+    document.getElementById('prevBtnBottom').disabled = currentIndex === 0;
+    document.getElementById('nextBtnBottom').disabled = currentIndex === slides.length - 1;
 
     // إعادة معالجة MathJax بعد تحديث المحتوى
     if (window.MathJax && window.MathJax.typesetPromise) {
@@ -208,6 +214,8 @@ function prev() {
 window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('prevBtn').addEventListener('click', prev);
     document.getElementById('nextBtn').addEventListener('click', next);
+    document.getElementById('prevBtnBottom').addEventListener('click', prev);
+    document.getElementById('nextBtnBottom').addEventListener('click', next);
     loadSlides();
 });
 
