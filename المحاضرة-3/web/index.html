@@ -113,6 +113,14 @@
             document.body.classList.add('light-mode');
             document.querySelector('.theme-icon').textContent = '☀️';
         }
+        
+        // تطبيق اتجاه النص الإنجليزي
+        document.querySelectorAll('.text-content, .text-block').forEach(element => {
+            const textLabel = element.querySelector('.text-label');
+            if (textLabel && textLabel.textContent.includes('نص')) {
+                element.classList.add('ltr-text');
+            }
+        });
     </script>
 </body>
 

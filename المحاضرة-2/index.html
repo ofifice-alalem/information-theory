@@ -309,7 +309,7 @@
             <p><strong>الشرح:</strong> المجموعتان متساويتان إذا كانت كل واحدة منهما مجموعة جزئية من الأخرى.</p>
 
             <h3>3. المتممة (Complement)</h3>
-            <p><strong>النص المصحح:</strong> Complement: <span class="math-expr"><span class="overline"><span
+            <p><strong></strong> Complement: <span class="math-expr"><span class="overline"><span
                             class="overline">A</span></span>=A</span>, <span class="math-expr">A&cap; <span
                         class="overline">A</span> = &emptyset;</span>, <span class="math-expr">A&cup; <span
                         class="overline">A</span> = H</span> (أو <span class="math">&Omega;</span>), <span
@@ -339,7 +339,7 @@
                 الاحتمال).</p>
 
             <h3>2. تعريف مجموعة النتائج (Set of results - <span class="math">H</span>)</h3>
-            <p><strong>النص المصحح:</strong> Definition: Set of results (outcomes) <span class="math-expr">H=\{\eta_1,
+            <p><strong></strong> Definition: Set of results (outcomes) <span class="math-expr">H=\{\eta_1,
                     \eta_2, \eta_3, \dots\}</span></p>
             <p><strong>النص:</strong> Set of results <span class="math">H</span> = set of all possible results <span
                     class="math">&eta;</span> of a stochastic experiment.</p>
@@ -361,7 +361,7 @@
             <p><strong>الشرح:</strong> النتائج الأولية متنافية، أي لا يمكن أن تقع في نفس الوقت.</p>
 
             <h3>2. رموز المتغيرات الشائعة (Variables in Literature)</h3>
-            <p><strong>النص المصحح:</strong> Variables in literature: often <span class="math">&Omega;</span> instead of
+            <p><strong></strong> Variables in literature: often <span class="math">&Omega;</span> instead of
                 <span class="math">H</span> and <span class="math">&omega;</span> instead of <span
                     class="math">&eta;</span></p>
             <p><strong>الشرح المصحح:</strong> تنويه لاستخدام رموز بديلة شائعة في المراجع: <span
@@ -371,12 +371,12 @@
             <h3>3. أمثلة على فضاء العينة (<span class="math">H</span>)</h3>
             <ul>
                 <li><strong>رمي النرد (Throwing dice):</strong>
-                    <p><strong>النص المصحح:</strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
+                    <p><strong></strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
                         the symbols <span class="math">i=1...6</span> of the cube: <span class="math-expr">H=\{\eta_1,
                             \eta_2, \eta_3, \eta_4, \eta_5, \eta_6\}</span></p>
                 </li>
                 <li><strong>رمي كرة لعبة الروليت (Roulette game):</strong>
-                    <p><strong>النص المصحح:</strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
+                    <p><strong></strong> Elementary results <span class="math">&eta;<sub>i</sub></span> are
                         the numbers <span class="math">i=0...36</span>: <span class="math-expr">H=\{\eta_1, \eta_2,
                             \eta_3, \dots, \eta_{36}\}</span></p>
                 </li>
@@ -401,7 +401,7 @@
                             class="math"><span class="overline">A</span>&in; A</span></p>
                 </li>
                 <li>
-                    <p><strong>النص المصحح:</strong> from <span class="math">A_1, A_2, \dots &in; A</span> it follows
+                    <p><strong></strong> from <span class="math">A_1, A_2, \dots &in; A</span> it follows
                         <span class="math-expr">&bigcup_{i=1}^N A_i &in; A</span></p>
                 </li>
             </ol>
@@ -415,7 +415,7 @@
                 events cannot happen at the same time.</p>
 
             <h3>3. الحد الأقصى لعدد الأحداث الممكنة</h3>
-            <p><strong>النص المصحح:</strong> Given <span class="math">N</span> elementary results, the maximum possible
+            <p><strong></strong> Given <span class="math">N</span> elementary results, the maximum possible
                 number of events in the field of events is: <span class="math-expr">N_{\max} = 2^N</span></p>
             <p><strong>الشرح:</strong> العدد الأقصى للأحداث يساوي <span class="math">2</span> مرفوعاً لقوة عدد النتائج
                 الأولية (<span class="math">N</span>).</p>
@@ -932,6 +932,14 @@
             document.body.classList.add('light-mode');
             document.querySelector('.theme-icon').textContent = '☀️';
         }
+        
+        // تطبيق اتجاه النص الإنجليزي
+        document.querySelectorAll('p').forEach(p => {
+            const strong = p.querySelector('strong');
+            if (strong && (strong.textContent.includes('النص:') || strong.textContent.includes('النص المصحح:'))) {
+                p.classList.add('ltr-text');
+            }
+        });
     </script>
 
         <script>

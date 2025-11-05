@@ -264,6 +264,11 @@ p {
     text-align: justify;
 }
 
+.ltr-text {
+    direction: ltr;
+    text-align: left;
+}
+
 ul {
     list-style-type: none;
     padding-right: 0;

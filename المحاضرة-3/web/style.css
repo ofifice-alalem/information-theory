@@ -322,6 +322,11 @@ h1::after {
     box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
 }
 
+.text-block, .ltr-text {
+    direction: ltr;
+    text-align: left;
+}
+
 .text-block .explanation-label {
     margin-top: 15px;
     color: rgba(255,255,255,0.6);
@@ -598,6 +603,11 @@ body.light-mode .theme-toggle {
 
 body.light-mode .theme-icon {
     color: #1e293b;
+}
+
+.ltr-text {
+    direction: ltr;
+    text-align: left;
 }
 
 .theme-toggle-sidebar {
