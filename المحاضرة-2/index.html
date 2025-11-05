@@ -18,6 +18,9 @@
             <img src="categories.png" alt="القائمة" class="menu-icon">
         </button>
         <div class="mobile-header-title">2- Probability</div>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <span class="theme-icon">🌙</span>
+        </button>
     </div>
     
 
@@ -26,6 +29,11 @@
         <div class="logo">
             <div class="logo-icon">📚</div>
             <span>نظرية المعلومات</span>
+        </div>
+        
+        <div class="theme-toggle-sidebar" onclick="toggleTheme()">
+            <span class="theme-icon">🌙</span>
+            <span>تبديل الوضع</span>
         </div>
         
         <div class="menu-section">
@@ -908,6 +916,22 @@
             
             sections.forEach(section => observer.observe(section));
         });
+        
+        // تبديل الوضع
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const themeIcon = document.querySelector('.theme-icon');
+            const isLight = document.body.classList.contains('light-mode');
+            themeIcon.textContent = isLight ? '☀️' : '🌙';
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+        
+        // تحميل الوضع المحفوظ
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            document.querySelector('.theme-icon').textContent = '☀️';
+        }
     </script>
 
         <script>

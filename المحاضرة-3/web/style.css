@@ -466,6 +466,175 @@ mjx-container[display="true"] {
     display: none !important;
 }
 
+.theme-toggle {
+    background: rgba(124, 58, 237, 0.2);
+    border: 2px solid rgba(124, 58, 237, 0.3);
+    padding: 6px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-icon {
+    font-size: 18px;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(124, 58, 237, 0.3);
+    border-color: rgba(124, 58, 237, 0.5);
+}
+
+/* الوضع الفاتح */
+body.light-mode {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+    color: #1e293b;
+}
+
+body.light-mode::before {
+    background: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+}
+
+body.light-mode .sidebar {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.1);
+}
+
+body.light-mode .logo {
+    color: #1e293b;
+}
+
+body.light-mode .menu-title {
+    color: rgba(0,0,0,0.6);
+}
+
+body.light-mode #slides-menu a {
+    color: rgba(0,0,0,0.7);
+}
+
+body.light-mode #slides-menu a:hover {
+    background: rgba(124, 58, 237, 0.1);
+    color: #1e293b;
+}
+
+body.light-mode .main-content {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+}
+
+body.light-mode .container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .container::before {
+    background: linear-gradient(90deg, transparent 0%, rgba(124, 58, 237, 0.2) 50%, transparent 100%);
+}
+
+body.light-mode h1 {
+    color: #1e293b;
+    border-bottom: 3px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .status {
+    color: rgba(0,0,0,0.8);
+}
+
+body.light-mode .slide-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.7) 100%);
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+body.light-mode .slide-content h2 {
+    color: #7c3aed;
+}
+
+body.light-mode .slide-text,
+body.light-mode .slide-text p {
+    color: rgba(0,0,0,0.8);
+}
+
+body.light-mode .text-label {
+    color: #7c3aed;
+}
+
+body.light-mode .text-content,
+body.light-mode .explanation-content {
+    color: rgba(0,0,0,0.8);
+}
+
+body.light-mode .text-block {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+}
+
+body.light-mode .explanation-block {
+    background: rgba(248, 250, 252, 0.8);
+    border-right: 5px solid rgba(0,0,0,0.2);
+}
+
+body.light-mode .explanation-label {
+    color: rgba(0,0,0,0.6);
+}
+
+body.light-mode .mobile-header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 50%, rgba(241, 245, 249, 0.95) 100%);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .menu-toggle,
+body.light-mode .theme-toggle {
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+body.light-mode .theme-icon {
+    color: #1e293b;
+}
+
+.theme-toggle-sidebar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.theme-toggle-sidebar:hover {
+    background: rgba(124, 58, 237, 0.2);
+    color: #ffffff;
+    transform: translateX(-3px);
+}
+
+.theme-toggle-sidebar .theme-icon {
+    font-size: 18px;
+}
+
+body.light-mode .theme-toggle-sidebar {
+    color: rgba(0,0,0,0.7);
+    background: rgba(124, 58, 237, 0.05);
+    border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+body.light-mode .theme-toggle-sidebar:hover {
+    background: rgba(124, 58, 237, 0.1);
+    color: #1e293b;
+}
+
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
