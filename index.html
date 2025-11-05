@@ -221,6 +221,15 @@
             });
         });
         
+        // إغلاق القائمة عند الضغط خارجها
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                closeSidebar();
+            }
+        });
+        
         // تبديل الوضع
         function toggleTheme() {
             document.body.classList.toggle('light-mode');

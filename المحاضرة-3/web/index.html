@@ -81,6 +81,11 @@
 
     <script src="app.js"></script>
     <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+    <script>
         let lastScrollTop = 0;
         const header = document.querySelector('.mobile-header');
         
@@ -119,6 +124,15 @@
             const textLabel = element.querySelector('.text-label');
             if (textLabel && textLabel.textContent.includes('نص')) {
                 element.classList.add('ltr-text');
+            }
+        });
+        
+        // إغلاق القائمة عند الضغط خارجها
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
             }
         });
     </script>
